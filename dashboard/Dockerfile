@@ -13,8 +13,5 @@ RUN bun install --frozen-lockfile --production
 COPY src/shared ./src/shared
 COPY dashboard ./dashboard
 
-# Expose port
-EXPOSE 3000
-
 # Run the dashboard
 CMD ["bun", "run", "dashboard/server.ts"]
