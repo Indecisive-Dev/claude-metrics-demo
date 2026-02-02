@@ -58,11 +58,6 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: BUILDKIT_INLINE_CACHE=1
-          cache-from: |
-            type=gha
-            type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/consumer:latest
-          cache-to: type=gha,mode=max
 
   build-dashboard:
     name: Build Dashboard
@@ -108,8 +103,3 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: BUILDKIT_INLINE_CACHE=1
-          cache-from: |
-            type=gha
-            type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/dashboard:latest
-          cache-to: type=gha,mode=max
