@@ -1,0 +1,23 @@
+{
+  "name": "claude-metrics-demo",
+  "version": "1.0.0",
+  "description": "Claude Code usage tracking system with S2 and Tinybird",
+  "type": "module",
+  "main": "src/hook/index.ts",
+  "scripts": {
+    "hook": "bun run src/hook/index.ts",
+    "consumer": "bun run src/consumer/index.ts",
+    "dev:consumer": "bun run --watch src/consumer/index.ts",
+    "dashboard": "bun run dashboard/server.ts",
+    "dev:dashboard": "bun run --watch dashboard/server.ts"
+  },
+  "keywords": ["claude", "metrics", "tinybird", "s2"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@s2-dev/streamstore": "^0.22.2"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

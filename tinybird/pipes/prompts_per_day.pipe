@@ -1,0 +1,15 @@
+DESCRIPTION >
+    Daily prompt counts
+
+NODE daily_counts
+SQL >
+    SELECT
+        toDate(timestamp) AS date,
+        count() AS prompt_count,
+        countDistinct(session_id) AS unique_sessions
+    FROM prompt_metrics
+    WHERE timestamp >= now() - INTERVAL 30 DAY
+    GROUP BY date
+    ORDER BY date DESC
+
+TYPE endpoint

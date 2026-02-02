@@ -1,0 +1,17 @@
+DESCRIPTION >
+    Average estimated tokens per prompt with daily breakdown
+
+NODE avg_tokens
+SQL >
+    SELECT
+        toDate(timestamp) AS date,
+        round(avg(estimated_tokens), 2) AS avg_tokens,
+        min(estimated_tokens) AS min_tokens,
+        max(estimated_tokens) AS max_tokens,
+        count() AS prompt_count
+    FROM prompt_metrics
+    WHERE timestamp >= now() - INTERVAL 30 DAY
+    GROUP BY date
+    ORDER BY date DESC
+
+TYPE endpoint

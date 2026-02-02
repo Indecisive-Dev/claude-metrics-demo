@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Bun lockfile (optional - can be committed)
+# bun.lock
+
+# Environment files
+.env
+.env.local
+
+# Tinybird auth (contains tokens)
+.tinyb
+
+# OS files
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Consumer checkpoint
+checkpoint.json

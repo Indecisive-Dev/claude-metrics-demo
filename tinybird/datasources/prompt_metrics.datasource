@@ -1,0 +1,16 @@
+SCHEMA >
+    `timestamp` DateTime64(3) `json:$.timestamp`,
+    `session_id` String `json:$.session_id`,
+    `cwd` String `json:$.cwd`,
+    `permission_mode` LowCardinality(String) `json:$.permission_mode`,
+    `prompt` String `json:$.prompt`,
+    `word_count` UInt32 `json:$.word_count`,
+    `char_count` UInt32 `json:$.char_count`,
+    `line_count` UInt16 `json:$.line_count`,
+    `estimated_tokens` UInt32 `json:$.estimated_tokens`,
+    `hostname` LowCardinality(String) `json:$.hostname`,
+    `username` LowCardinality(String) `json:$.username`
+
+ENGINE "MergeTree"
+ENGINE_PARTITION_KEY "toYYYYMM(timestamp)"
+ENGINE_SORTING_KEY "timestamp, session_id"

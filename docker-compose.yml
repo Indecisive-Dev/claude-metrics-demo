@@ -1,0 +1,40 @@
+services:
+  consumer:
+    build: .
+    container_name: claude-metrics-consumer
+    restart: always
+    environment:
+      - S2_ACCESS_TOKEN=${S2_ACCESS_TOKEN}
+      - S2_BASIN=${S2_BASIN}
+      - S2_STREAM=${S2_STREAM}
+      - TINYBIRD_HOST=${TINYBIRD_HOST}
+      - TINYBIRD_TOKEN=${TINYBIRD_TOKEN}
+      - TINYBIRD_DATASOURCE=${TINYBIRD_DATASOURCE}
+      - CHECKPOINT_FILE=/data/checkpoint.json
+    volumes:
+      - consumer-data:/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: dashboard/Dockerfile
+    container_name: claude-metrics-dashboard
+    restart: always
+    ports:
+      - "${DASHBOARD_PORT:-3000}:3000"
+    environment:
+      - TINYBIRD_HOST=${TINYBIRD_HOST}
+      - TINYBIRD_TOKEN=${TINYBIRD_TOKEN}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  consumer-data:

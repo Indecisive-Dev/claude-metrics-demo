@@ -1,0 +1,17 @@
+DESCRIPTION >
+    Average words per prompt with daily breakdown
+
+NODE avg_words
+SQL >
+    SELECT
+        toDate(timestamp) AS date,
+        round(avg(word_count), 2) AS avg_words,
+        min(word_count) AS min_words,
+        max(word_count) AS max_words,
+        count() AS prompt_count
+    FROM prompt_metrics
+    WHERE timestamp >= now() - INTERVAL 30 DAY
+    GROUP BY date
+    ORDER BY date DESC
+
+TYPE endpoint

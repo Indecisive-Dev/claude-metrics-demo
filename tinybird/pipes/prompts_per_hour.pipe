@@ -1,0 +1,15 @@
+DESCRIPTION >
+    Hourly prompt counts
+
+NODE hourly_counts
+SQL >
+    SELECT
+        toStartOfHour(timestamp) AS hour,
+        count() AS prompt_count,
+        countDistinct(session_id) AS unique_sessions
+    FROM prompt_metrics
+    WHERE timestamp >= now() - INTERVAL 7 DAY
+    GROUP BY hour
+    ORDER BY hour DESC
+
+TYPE endpoint

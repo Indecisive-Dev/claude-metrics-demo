@@ -1,0 +1,17 @@
+DESCRIPTION >
+    Average characters per prompt with daily breakdown
+
+NODE avg_chars
+SQL >
+    SELECT
+        toDate(timestamp) AS date,
+        round(avg(char_count), 2) AS avg_chars,
+        min(char_count) AS min_chars,
+        max(char_count) AS max_chars,
+        count() AS prompt_count
+    FROM prompt_metrics
+    WHERE timestamp >= now() - INTERVAL 30 DAY
+    GROUP BY date
+    ORDER BY date DESC
+
+TYPE endpoint
