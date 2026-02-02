@@ -6,9 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY package.json bun.lock* ./
 
-# Install dependencies with cache mount
-RUN --mount=type=cache,target=/root/.bun/install/cache \
-    bun install --frozen-lockfile --production
+# Install dependencies
+RUN bun install --frozen-lockfile --production
 
 # Copy source
 COPY src/shared ./src/shared
