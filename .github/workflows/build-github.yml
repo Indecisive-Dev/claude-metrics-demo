@@ -55,6 +55,7 @@ jobs:
 
   build-dashboard:
     name: Build Dashboard
+    needs: build-consumer
     runs-on: ubuntu-24.04
     permissions:
       contents: read
