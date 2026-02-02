@@ -49,14 +49,7 @@ DASHBOARD_PORT                             # Optional, defaults to 3000
 
 ## CI/CD
 
-Two workflows for build time comparison:
-
-| File | Runner | Purpose |
-|------|--------|---------|
-| `.github/workflows/build-github.yml` | `ubuntu-24.04` | GitHub Actions baseline |
-| `.github/workflows/build-blacksmith.yml` | `blacksmith-2vcpu-ubuntu-2204` | Blacksmith optimized builds |
-
-Both push to `ghcr.io/<owner>/claude-metrics-demo/{consumer,dashboard}`.
+`.github/workflows/build-blacksmith.yml` runs on `blacksmith-2vcpu-ubuntu-2204` and pushes to `ghcr.io/<owner>/claude-metrics-demo/{consumer,dashboard}`.
 
 ## Key Design Decisions
 

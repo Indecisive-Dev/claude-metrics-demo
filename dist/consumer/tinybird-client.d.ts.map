@@ -1,0 +1,1 @@
+{"version":3,"file":"tinybird-client.d.ts","sourceRoot":"","sources":["../../src/consumer/tinybird-client.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,oBAAoB,CAAC;AAEvD,qBAAa,cAAc;IACzB,OAAO,CAAC,QAAQ,CAAC,IAAI,CAAS;IAC9B,OAAO,CAAC,QAAQ,CAAC,KAAK,CAAS;IAC/B,OAAO,CAAC,QAAQ,CAAC,UAAU,CAAS;;IAQ9B,SAAS,CAAC,OAAO,EAAE,YAAY,EAAE,GAAG,OAAO,CAAC,IAAI,CAAC;CAyBxD"}

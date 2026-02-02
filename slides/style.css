@@ -1,0 +1,198 @@
+/* Tinybird Brand Colors */
+:root {
+  /* Primary Colors */
+  --tb-cyan: #00D9FF;
+  --tb-coral: #EC6D62;
+  --tb-yellow: #F5C451;
+  --tb-green: #61C454;
+
+  /* Background & Neutrals */
+  --tb-bg-dark: #0A0A0A;
+  --tb-gray-900: #111111;
+  --tb-gray-800: #1A1A1A;
+  --tb-gray-400: #A0A0A0;
+  --tb-gray-300: #D0D0D0;
+
+  /* Slidev Theme Overrides */
+  --slidev-theme-primary: var(--tb-green);
+  --slidev-theme-background: var(--tb-bg-dark);
+}
+
+/* Dark background for all slides */
+.slidev-layout {
+  background: var(--tb-bg-dark) !important;
+  color: var(--tb-gray-300);
+}
+
+/* Typography - Roboto Mono for headings */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Mono', monospace !important;
+  color: white !important;
+}
+
+h1 {
+  background: linear-gradient(135deg, var(--tb-green) 0%, #4A9E3F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Body text */
+body, p, li, span {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* List styling */
+ul, ol {
+  color: var(--tb-gray-300);
+}
+
+li::marker {
+  color: var(--tb-green);
+}
+
+/* Code blocks */
+code {
+  font-family: 'Roboto Mono', monospace !important;
+  background: var(--tb-gray-900) !important;
+  border: 1px solid var(--tb-gray-800);
+  color: var(--tb-green) !important;
+}
+
+pre {
+  background: var(--tb-gray-900) !important;
+  border: 1px solid var(--tb-gray-800);
+  border-radius: 8px;
+}
+
+/* Links */
+a {
+  color: var(--tb-green) !important;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Accent classes for custom styling */
+.text-cyan {
+  color: var(--tb-cyan);
+}
+
+.text-coral {
+  color: var(--tb-coral);
+}
+
+.text-yellow {
+  color: var(--tb-yellow);
+}
+
+.text-green {
+  color: var(--tb-green);
+}
+
+.bg-cyan {
+  background-color: var(--tb-cyan);
+}
+
+.bg-coral {
+  background-color: var(--tb-coral);
+}
+
+/* Card/container styling */
+.card {
+  background: var(--tb-gray-900);
+  border: 1px solid var(--tb-gray-800);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+/* Slide transitions */
+.slidev-vclick-target {
+  transition: all 0.3s ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Progress bar */
+.slidev-progress {
+  background: var(--tb-green) !important;
+}
+
+/* Navigation dots */
+.slidev-nav-dots .dot {
+  background: var(--tb-gray-800);
+}
+
+.slidev-nav-dots .dot.active {
+  background: var(--tb-green);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--tb-green);
+  background: var(--tb-gray-900);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background: var(--tb-gray-900);
+  color: var(--tb-green);
+  font-family: 'Roboto Mono', monospace;
+}
+
+td, th {
+  border: 1px solid var(--tb-gray-800);
+  padding: 0.75rem 1rem;
+}
+
+tr:nth-child(even) {
+  background: var(--tb-gray-900);
+}
+
+/* Emphasis styling */
+strong {
+  color: white;
+  font-weight: 600;
+}
+
+em {
+  color: var(--tb-green);
+  font-style: normal;
+}
+
+/* Custom highlight box */
+.highlight-box {
+  background: linear-gradient(135deg, rgba(97, 196, 84, 0.1) 0%, rgba(97, 196, 84, 0.05) 100%);
+  border: 1px solid rgba(97, 196, 84, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+/* Metric/stat display */
+.metric {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--tb-green);
+}
+
+.metric-label {
+  font-size: 1rem;
+  color: var(--tb-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
