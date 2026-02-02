@@ -25,7 +25,7 @@ jobs:
       - name: Set image prefix
         run: echo "IMAGE_PREFIX=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
-      - name: Set up Docker Buildx
+      - name: Setup Docker Builder
         uses: useblacksmith/setup-docker-builder@v1
 
       - name: Log in to Container Registry
@@ -52,6 +52,8 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   build-dashboard:
     name: Build Dashboard
@@ -68,7 +70,7 @@ jobs:
       - name: Set image prefix
         run: echo "IMAGE_PREFIX=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
-      - name: Set up Docker Buildx
+      - name: Setup Docker Builder
         uses: useblacksmith/setup-docker-builder@v1
 
       - name: Log in to Container Registry
@@ -95,3 +97,5 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
